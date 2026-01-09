@@ -1,0 +1,10 @@
+pynput
+pyaudio
+websocket-client
+requests
+customtkinter
+packaging
+pywin32
+PyPDF2
+python-docx
+openai
