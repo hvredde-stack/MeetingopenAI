@@ -1,59 +1,71 @@
 # Stealth Copilot
 
-Stealth Copilot is a real-time interview assistant that listens to questions and provides concise, bullet-point answers on a discreet, always-on-top window. It uses AssemblyAI for real-time transcription and Groq with the Llama 3 model for generating answers.
+Stealth Copilot is a real-time interview assistant that listens to questions and shows concise, readable answers in a discreet, always-on-top window. It uses AssemblyAI for live transcription and OpenAI for answer generation.
 
 ## Features
 
-- **Real-time Transcription**: Captures audio from your system (e.g., a virtual meeting) and transcribes it in real-time.
-- **AI-Powered Answers**: Sends the transcribed question to the Groq API to get a concise, expert answer.
-- **Discreet Display**: Shows the answer in a simple, borderless, always-on-top window that you can move around your screen.
-- **Hotkey Control**: Toggle the visibility of the answer window with a hotkey (`Ctrl+Alt+H`).
-- **Virtual Audio Input**: Designed to listen to a virtual audio device like VB-Cable, so it doesn't capture your own microphone.
+- Real-time transcription from system audio (via VB-Cable)
+- Fast, clean answers optimized for on-screen reading
+- Stealth overlay window with hotkey controls
+- Context support: resume/JD upload, company name, interview stage
+- Rolling conversation memory for continuity
 
-## Getting Started
+## Requirements
 
-### Prerequisites
-
-- Python 3.x
+- Windows 10/11
+- Python 3.10+
 - [VB-CABLE Virtual Audio Device](https://vb-audio.com/Cable/)
 
-### Installation
+## Installation
 
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/hvredde-stack/Meeting_AI.git
-    cd Meeting_AI
-    ```
+1) Clone the repo:
 
-2.  **Install the required Python packages:**
-    ```bash
-    pip install -r requirements.txt
-    ```
+```bash
+git clone https://github.com/hvredde-stack/MeetingopenAI.git
+cd MeetingopenAI
+```
 
-### Configuration
+2) Install dependencies:
 
-1.  **Create a `config.py` file** in the same directory as `stealth_copilot.py`.
+```bash
+pip install -r requirements.txt
+```
 
-2.  **Add your API keys** to the `config.py` file. You will need keys from Groq and AssemblyAI.
-    ```python
-    # config.py
-    GROQ_API_KEY = "YOUR_GROQ_API_KEY"
-    ASSEMBLYAI_API_KEY = "YOUR_ASSEMBLYAI_API_KEY"
-    ```
+## Configuration
+
+Create `config.py` in the project root with your API keys:
+
+```python
+# config.py
+OPENAI_API_KEY = "YOUR_OPENAI_API_KEY"
+ASSEMBLYAI_API_KEY = "YOUR_ASSEMBLYAI_API_KEY"
+```
 
 ## Usage
 
-1.  **Configure your system's audio:**
-    - Set the audio output of the application you want to listen to (e.g., your browser, Microsoft Teams, Zoom) to **CABLE Input (VB-Audio Virtual Cable)**. This routes the meeting audio into the virtual cable.
-    - The script will automatically listen to the other end of the cable, **CABLE Output**.
+1) Route meeting audio to VB-Cable:
+- Set your meeting app output device to **CABLE Input (VB-Audio Virtual Cable)**.
+- The app listens on **CABLE Output**.
 
-2.  **Run the script:**
-    ```bash
-    python stealth_copilot.py
-    ```
+2) Run the app:
 
-3.  **Using the Copilot:**
-    - When the script is running, a black window will appear. This is where the answers will be displayed.
-    - When a question is spoken in the audio routed through VB-Cable, the transcribed text will appear in your console, and the AI-generated answer will appear in the black window.
-    - You can drag the window by clicking and dragging it.
-    - To hide or show the window, use the hotkey: `Ctrl+Alt+H`.
+```bash
+python stealth_copilot.py
+```
+
+3) Hotkeys:
+- `Ctrl+Alt+H`: show/hide window
+- `Ctrl+Alt+U`: upload resume/JD/context file (PDF/DOCX/TXT)
+- `Ctrl+Alt+C`: set company name
+- `Ctrl+Alt+S`: set interview stage
+
+## Tips
+
+- If the app responds too early or too late, adjust the end-of-turn threshold in `stealth_copilot.py`.
+- Keep answers short by editing the system prompt block in `stealth_copilot.py`.
+- The overlay keeps the last 1000 lines for scrollback.
+
+## Troubleshooting
+
+- If you get no audio, confirm VB-Cable is installed and your meeting app output is set correctly.
+- If the overlay is hidden from screen capture, that is expected in stealth mode.
