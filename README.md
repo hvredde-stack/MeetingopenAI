@@ -31,6 +31,23 @@ Stealth Copilot is a real-time interview assistant that listens to questions and
   - python-docx
   - openai
 
+
+## Virtual Environment (Recommended)
+
+Create and use an isolated venv so dependencies don't affect your global Python:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+```
+
+Deactivate when done:
+
+```powershell
+deactivate
+```
+
 ## Installation
 
 1) Clone the repo:
