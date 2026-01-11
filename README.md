@@ -16,6 +16,21 @@ Stealth Copilot is a real-time interview assistant that listens to questions and
 - Python 3.10+
 - [VB-CABLE Virtual Audio Device](https://vb-audio.com/Cable/)
 
+## Language and Dependencies
+
+- Language: Python
+- Dependencies (installed via `requirements.txt`):
+  - pynput
+  - pyaudio
+  - websocket-client
+  - requests
+  - customtkinter
+  - packaging
+  - pywin32
+  - PyPDF2
+  - python-docx
+  - openai
+
 ## Installation
 
 1) Clone the repo:
