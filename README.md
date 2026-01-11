@@ -59,6 +59,21 @@ python stealth_copilot.py
 - `Ctrl+Alt+C`: set company name
 - `Ctrl+Alt+S`: set interview stage
 
+
+## Run without PowerShell
+
+Start the app without keeping a terminal open:
+
+```powershell
+Start-Process pythonw -ArgumentList "stealth_copilot.py"
+```
+
+Stop it:
+
+```powershell
+taskkill /IM pythonw.exe /F
+```
+
 ## Tips
 
 - If the app responds too early or too late, adjust the end-of-turn threshold in `stealth_copilot.py`.
